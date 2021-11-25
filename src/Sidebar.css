@@ -1,0 +1,110 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.3;
+  /* flex-direction: column; */
+}
+
+.sidebar-header {
+  background: var(--lightColor);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-right: 1px solid var(--lightColor);
+}
+
+.sidebar-headerRight {
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+  /* max-width: 10vw; */
+}
+
+.sidebar-headerRight > .MuiSvgIcon-root {
+  margin-right: 2vw;
+  font-size: 24px !important;
+}
+
+/* .sidebar-search {
+  /* border-right: 1px solid var(--lightColor); */
+/* display: flex; */
+/* align-items: center; */
+/* height: 40px; */
+/* padding: 10px; */
+/* background: #eee; */
+/* } */
+/* .sidebar-searchContainer {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+} */
+
+.sidebar-searchContainer > .MuiSvgIcon-root {
+  color: grey;
+  /* width: 10%; */
+}
+
+.sidebar-chats {
+  /* overflow: auto;x */
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: white;
+  flex: 1;
+  background: var(--lightColor);
+}
+/* 
+.sidebar-searchContainer > form > input:focus {
+  outline: none;
+}
+
+.sidebar-searchContainer > input {
+  background: red;
+  /* font-weight: bolder; */
+/* background: #eee; */
+/* border: none; */
+/* padding: 10px; */
+/* width: 100%; */
+/* font-size: 0.8rem; */
+/* margin-left: 10px; */
+/* overflow: hidden; */
+/* } */
+
+.sidebar-search {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 10px;
+  background: #eee;
+}
+
+.sidebar-searchContainer {
+  display: flex;
+  align-items: center;
+  /* padding: 20px; */
+  /* background: red; */
+  background: #eee;
+
+  /* background: #eee; */
+  width: 100%;
+  height: 35px;
+  /* border-radius: 20px; */
+}
+
+form > input {
+  /* flex: 0.8; */
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin: 0 7px;
+  background: #eee;
+  border: none;
+  height: 2rem;
+  width: 100%;
+}
+
+form > input:focus {
+  outline: none;
+  outline: teal;
+}

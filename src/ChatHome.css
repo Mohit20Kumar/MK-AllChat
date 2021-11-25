@@ -1,0 +1,36 @@
+.ChatHome {
+  border-left: var(--darkColor) 2px solid;
+  /* padding: 0; */
+  height: 100%;
+  width: 100%;
+  background: var(--lightColor);
+  color: white;
+  flex-direction: column;
+  flex: 0.7;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ChatHome > h1 {
+  padding: 10px;
+  margin-bottom: 2rem;
+  letter-spacing: 3px;
+  transition: 0.3s all;
+}
+
+.ChatHome > h1:hover {
+  /* text-shadow: teal 2px solid; */
+  transform: scale(1.05);
+}
+
+.ChatHome > p {
+  letter-spacing: 3px;
+  margin: 0.5rem;
+}
+.ChatHome > h3 {
+  letter-spacing: 3px;
+  margin: 0.5rem;
+}

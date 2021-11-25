@@ -1,0 +1,132 @@
+.chat-footer > .MuiSvgIcon-root {
+  /* padding: 10px; */
+  color: grey;
+}
+
+.chat {
+  /* color: white; */
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+  /* background: var(--lightColor); */
+}
+
+.chat-header {
+  height: 5rem;
+  color: white;
+  background: var(--lightColor);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #616368;
+
+  /* border-bottom: 1px solid var(--lightColor); */
+  border-bottom: 1px solid #616368;
+}
+
+.chat-headerInfo {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.chat-headerInfo > h3 {
+  letter-spacing: 2px;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.chat-headerInfo > p {
+  opacity: 0.7;
+}
+
+.chat-body {
+  position: relative;
+  background: url("https://img.wallpapersafari.com/desktop/728/410/1/80/8DYndB.png");
+  border-left: 1px solid #616368;
+  padding: 10px;
+  overflow: auto;
+  flex: 1;
+}
+
+.chat-message {
+  margin-bottom: 5px;
+  color: white;
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  background: var(--blue);
+  max-width: 30rem;
+}
+
+.chat-name {
+  opacity: 0.5;
+
+  font-size: x-small;
+  /* opacity:; */
+  padding-bottom: 2px;
+  display: block;
+}
+
+.chat-timestamp {
+  opacity: 0.5;
+  margin-left: 10px;
+  font-size: x-small;
+}
+
+.chat-reciever {
+  margin-left: auto;
+  background: var(--darkColor);
+}
+
+.chat-footer {
+  position: relative;
+  padding: 10px;
+  color: white;
+  background: var(--lightColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  border-top: 1px solid #616368;
+  border-left: 1px solid #616368;
+}
+
+.chat-footer > form {
+  margin-left: 10px;
+  flex: 1;
+  display: flex;
+}
+
+.chat-footer > form > input {
+  font-weight: bold;
+  letter-spacing: 1px;
+  flex: 1;
+  /* display: flex; */
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+}
+
+/* .my-btn {
+  margin: 5rem;
+} */
+/* 
+.hehe {
+  display: hidden;
+} */
+
+.beinbottom {
+  /* left: 0; */
+  position: relative;
+  /* bottom: 0; */
+  /* width: 100%; */
+  /* background-color: red; */
+  /* color: white; */
+  /* text-align: center; */
+  /* position: sticky; */
+  /* bottom: 0; */
+  /* left: 0; */
+  /* display: none; */
+}
