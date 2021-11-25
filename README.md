@@ -12,3 +12,7 @@ Also This Website is Hosted on Netlify,
 
 Look for the File named : HOSTEDLINK.txt in the root directory.
 
+The WEBSITE IS HOSTED on NETLIFY
+
+Link- https://mk-allchat.netlify.app/
+
