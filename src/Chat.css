@@ -44,7 +44,7 @@
   background: url("https://img.wallpapersafari.com/desktop/728/410/1/80/8DYndB.png");
   border-left: 1px solid #616368;
   padding: 10px;
-  overflow: auto;
+  overflow-y: scroll;
   flex: 1;
 }
 

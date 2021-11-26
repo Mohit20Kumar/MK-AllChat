@@ -9,6 +9,9 @@ import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import SendIcon from "@mui/icons-material/Send";
+// import ReactScrollableFeed from "react-scrollable-feed";
+import ScrollableFeed from "react-scrollable-feed";
+
 import {
   orderBy,
   query,
@@ -32,6 +35,7 @@ const Chat = () => {
   const { roomId } = useParams();
   // const roomId = "0KfZNrQmAPjibXcZK2Tj";
   // console.log(roomId);
+  // const roomId = id;
   const inputRef = useRef();
   const [insideMessages, setInsideMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -39,13 +43,15 @@ const Chat = () => {
   const [cursorPosition, setCursorPosition] = useState();
   const [roomName, setRoomName] = useState("");
   const messageEl = useRef();
+  console.log(roomId);
+  console.log("now i am in chat");
 
   // const scrollToBottom = () => {
   //   messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   // };
 
-  useEffect(() => {}, [message]);
-  const getMeData = useCallback(async () => {
+  // useEffect(() => {}, [message]);
+  const getMeData = async () => {
     if (roomId) {
       const currRoom = doc(getFirestore(), "rooms", roomId);
       const data = await getDoc(currRoom);
@@ -64,12 +70,11 @@ const Chat = () => {
       // console.log(smaller.data().name);
       // });
     }
-    // console.log(roomId);
-  }, [roomId]);
-
+    // console.log(roomId);;
+  };
   useEffect(() => {
     getMeData();
-  }, [roomId, getMeData]);
+  }, [roomId]);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -123,14 +128,22 @@ const Chat = () => {
     inputRef.current.focus();
   }, [roomId]);
 
-  useEffect(() => {
-    if (messageEl) {
-      messageEl.current.addEventListener("DOMNodeInserted", (event) => {
-        const { currentTarget: target } = event;
-        target.scroll({ top: target.scrollHeight, behavior: "smooth" });
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (messageEl) {
+  //     messageEl.current.addEventListener("DOMNodeInserted", (event) => {
+  //       const { currentTarget: target } = event;
+  //       target.scroll({ top: target.scrollHeight, behavior: "smooth" });
+  //     });
+  //   }
+  // }, [message]);
+
+  // const messagesEndRef = useRef(null);
+
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  // useEffect(scrollToBottom, [insideMessages]);
 
   return (
     <div className="chat">
@@ -157,25 +170,14 @@ const Chat = () => {
         </div>
       </div>
 
-      <div className="chat-body" ref={messageEl}>
-        {insideMessages.map((singleMsg) => {
-          return (
-            <>
-              <p
-                className={`chat-message ${
-                  singleMsg.name === user.displayName && "chat-reciever"
-                }`}
-              >
-                <span className="chat-name">{singleMsg.name}</span>
-                {singleMsg.message}
-                <span className="chat-timestamp">
-                  {new Date(singleMsg.timestamp?.toDate()).toUTCString()}
-                </span>
-              </p>
-            </>
-          );
-        })}
-      </div>
+      <ScrollableFeed className="chat-body">
+        <div>
+          {insideMessages.map((singleMsg) => {
+            return <Msg {...singleMsg} {...user} key={singleMsg.id} />;
+          })}
+          {/* <div ref={messagesEndRef} /> */}
+        </div>
+      </ScrollableFeed>
       <div className="chat-footer">
         <IconButton>
           <InsertEmoticonIcon
@@ -220,8 +222,20 @@ const Chat = () => {
   );
 };
 
-// const Emojies = () => {
-//   return <div></div>;
-// };
-
 export default Chat;
+
+// import React from "react";
+
+export const Msg = ({ name, message, timestamp, displayName }) => {
+  return (
+    <div>
+      <p className={`chat-message ${name === displayName && "chat-reciever"}`}>
+        <span className="chat-name">{name}</span>
+        {message}
+        <span className="chat-timestamp">
+          {new Date(timestamp?.toDate()).toUTCString()}
+        </span>
+      </p>
+    </div>
+  );
+};

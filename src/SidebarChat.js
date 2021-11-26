@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SidebarChat.css";
 import { Avatar } from "@mui/material";
+import Chat from "./Chat";
 
 import {
   orderBy,
@@ -81,9 +82,14 @@ const SidebarChat = ({ id, name, addNewChat }) => {
 
   // console.log(msggg);
   // fdsfd;
+  const renderChat = () => {
+    <Chat key={id} id={id} />;
+    console.log("i am in sc ");
+  };
+
   return !addNewChat ? (
     <Link to={`/rooms/${id}`}>
-      <div className="sidebarchat">
+      <div onClick={renderChat} className="sidebarchat">
         <Avatar src={URL} />
         <div className="sidebarchat-info">
           <h3>
@@ -92,6 +98,7 @@ const SidebarChat = ({ id, name, addNewChat }) => {
           {/* {console.log(name)} */}
           <p className="my-paragraph">
             {msg} {len > 15 ? "..." : ""}
+            {/* Just Some Random stuff */}
           </p>
         </div>
       </div>
