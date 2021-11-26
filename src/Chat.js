@@ -53,16 +53,19 @@ const Chat = () => {
   // useEffect(() => {}, [message]);
   const getMeData = async () => {
     if (roomId) {
-      const currRoom = doc(getFirestore(), "rooms", roomId);
+      const currRoom = await doc(getFirestore(), "rooms", roomId);
       const data = await getDoc(currRoom);
       setRoomName(data.data().name);
 
       // Something dangerous
 
-      const currRoomCollection = collection(currRoom, "messages");
-      const ordered = query(currRoomCollection, orderBy("timestamp", "asc"));
+      const currRoomCollection = await collection(currRoom, "messages");
+      const ordered = await query(
+        currRoomCollection,
+        orderBy("timestamp", "asc")
+      );
 
-      onSnapshot(ordered, (snapshot) =>
+      await onSnapshot(ordered, (snapshot) =>
         setInsideMessages(snapshot.docs.map((doc) => doc.data()))
       );
       // console.log(insideMessages);
@@ -74,7 +77,7 @@ const Chat = () => {
   };
   useEffect(() => {
     getMeData();
-  }, [roomId]);
+  }, [roomId, message]);
 
   const sendMessage = (e) => {
     e.preventDefault();
