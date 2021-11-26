@@ -42,9 +42,9 @@ const Chat = () => {
   const [showEmoji, setShowEmoji] = useState(false);
   const [cursorPosition, setCursorPosition] = useState();
   const [roomName, setRoomName] = useState("");
-  const messageEl = useRef();
-  console.log(roomId);
-  console.log("now i am in chat");
+  // const messageEl = useRef();
+  // console.log(roomId);
+  // console.log("now i am in chat");
 
   // const scrollToBottom = () => {
   //   messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -77,7 +77,7 @@ const Chat = () => {
   };
   useEffect(() => {
     getMeData();
-  }, [roomId, message]);
+  }, [message, roomId]);
 
   const sendMessage = (e) => {
     e.preventDefault();
